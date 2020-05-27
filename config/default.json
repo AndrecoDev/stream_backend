@@ -1,0 +1,3 @@
+{
+    "mongoURI": "mongodb+srv://db_user_mongodb:Electro90-@mondodb-xhcg3.mongodb.net/streamIndu?retryWrites=true&w=majority"
+}

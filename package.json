@@ -1,0 +1,27 @@
+{
+  "name": "exxx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./api/index.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "app": "nodemon ./api/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.3.1",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.14",
+    "node-onvif": "^0.1.7",
+    "node-rtsp-stream": "0.0.9",
+    "nodemon": "^2.0.3",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "ws": "^7.3.0"
+  }
+}
