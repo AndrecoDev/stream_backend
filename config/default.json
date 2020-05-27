@@ -1,3 +1,3 @@
 {
-    "mongoURI": "mongodb+srv://db_user_mongodb:Electro90-@mondodb-xhcg3.mongodb.net/streamIndu?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://andreco:andreco12@cluster0-obiy5.mongodb.net/stream?retryWrites=true&w=majority"
 }
