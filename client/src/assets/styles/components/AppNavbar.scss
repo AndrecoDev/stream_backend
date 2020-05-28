@@ -1,0 +1,26 @@
+@import '../Vars.scss';
+
+// .Navbar{
+//     background-color: $primary !important;
+// }
+
+.NavPadding{
+    padding: 1rem 5rem;
+}
+.navbar_img{
+    width: 8rem;
+    height: 3rem;
+    border-radius: 5rem;
+    margin-left: 2rem;
+}
+a{
+    color: $secondary !important;
+    text-decoration: none !important;
+    font-weight: 500;
+    padding: 1rem;
+}
+a:hover{
+    color: $tertiary !important;
+    text-decoration: none !important;
+    font-weight: 500;
+}

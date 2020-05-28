@@ -1,0 +1,43 @@
+.containerCamera{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin: 3rem 12rem;
+}
+img{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 25px;
+    cursor: pointer;
+}
+h3{
+    color: white;
+    margin: 1rem;
+    font-style: italic;
+    text-transform: capitalize;
+
+}
+h4{
+    color: rgb(245, 13, 13);
+    font-style: uppercase;
+    background-color: #fff;
+    padding: 0.2rem 0.7rem;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: 900;
+    position: absolute;
+    margin-top: 72px;
+    margin-left: 6px;
+}
+@media (max-width: 767px){
+    .containerCamera{
+       grid-template-columns: repeat(1, 1fr);
+        margin: 2rem;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        justify-items: center;
+    }
+    h4{
+        margin-left: 44px;
+    }
+}

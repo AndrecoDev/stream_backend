@@ -2,10 +2,9 @@
   "name": "exxx",
   "version": "1.0.0",
   "description": "",
-  "main": "./api/index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "app": "nodemon ./api/index.js"
+    "app": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
