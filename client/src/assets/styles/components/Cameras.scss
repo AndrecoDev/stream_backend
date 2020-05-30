@@ -1,7 +1,7 @@
 @import '../Vars.scss';
 .containerCamera{
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     margin: 3rem 12rem;
 }
 img{
@@ -9,6 +9,7 @@ img{
     height: 15rem;
     border-radius: 25px;
     cursor: pointer;
+    margin-right:  5rem;
 }
 h3{
     color: white;

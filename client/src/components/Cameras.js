@@ -18,15 +18,16 @@ const Cameras = () => {
         window.open(`http://localhost:8080/api/stream/camera/${name}`, "_blank", "location=no,toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=800,height=430");
     }
     return (
-        <div className="containerCamera" >
+        <div className="container">
             <AppModal />
-            { strcamera.map(x => (
+            <div className="containerCamera">
+                 { strcamera.map(x => (
                 (<div key={ x._id }>
                     <h3>{ x.name }</h3>
                     <img src={ image } alt={ x.streamUrl } title={ x.streamUrl } onClick={()=> getIdCamera(x.name)}  />
                 </div>)
                 )) }
-            
+            </div>
         </div>
     )
 }
