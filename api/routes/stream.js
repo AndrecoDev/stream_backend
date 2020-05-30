@@ -1,13 +1,34 @@
 const express = require('express')
-const { isAuthenticated, hasRoles } = require('../auth')
+const Stream = require('../models/Stream')
+Streamx = require('node-rtsp-stream');
+const onvif = require('node-onvif')
+// const { isAuthenticated, hasRoles } = require('../auth')
 const router = express.Router()
 
-// router.get('/', isAuthenticated, (req, res) => {
-//      res.send('Howdy From /stream')
-// })
 router.get('/', (req, res) => {
-     console.log(process.camera)
-     res.write(`<html lang="en">
+  Stream.find().limit(3)
+    .then(data => {
+      res.json(data)
+    })
+})
+
+Stream.find()
+  .then((data) => {
+    if (data) {
+      const count = 0
+      data.map((datos, _id, name, desc) => {
+        onvif.startProbe().then((device_info_list) => {
+          stream = new Streamx({
+            name: '',
+            streamUrl: datos.streamUrl,
+            wsPort: `800${count}`
+          });
+        }).catch((error) => {
+          console.error(error);
+        });
+
+        router.get(`/camera/${datos.name}`, (req, res) => {
+          res.write(`<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,33 +43,38 @@ router.get('/', (req, res) => {
             heigh: 100%;
           }
         </style>
-        <title>House Camera</title>
-
-       ${ process.camera.map((can, i) => {
-
-          return ` <div><canvas class="camera" id="videoCanvas${i}" width="640" height="360"></canvas></div>`
-     }).join("")}
-       
-    
+        <title>${ datos.name}</title>
+        <div><canvas class="camera" id="videoCanvas${ count }" width="640" height="360"></canvas></div>
         <script src="https://jsmpeg.com/jsmpeg.min.js"></script>
         <script type="text/javascript">
-    
-        ${ process.camera.map((can, i) => {
-
-          return ` var canvas${i} = document.getElementById('videoCanvas${i}');
-                     var ws${i} = "ws://localhost:900${i}";
-                     var player${i} = new JSMpeg.Player(ws${i}, {canvas:canvas${i}, autoplay:true,audio:false,loop: true });
-            `
-     }).join("")}
-    
+                     var canvas${ count} = document.getElementById('videoCanvas${count}');
+                     var ws${ count} = "ws://localhost:800${count}";
+                     var player${ count} = new JSMpeg.Player(ws${count}, {canvas:canvas${count}, autoplay:true,audio:false,loop: true });
         </script>
-    
     <body>
-          
     </body>
     </html>`)
+          res.end();
+        })
+        count += 1
+      })
+    }
+  })
 
-     res.end();
+router.post('/camera', (req, res) => {
+  const { name, streamUrl } = req.body
+  Stream.findOne({ streamUrl }).exec()
+    .then((stream) => {
+      if (stream) {
+        return res.send('stream url exists')
+      }
+      Stream.create({
+        name,
+        streamUrl
+      }).then(() => {
+        res.send('Camera add successfully')
+      })
+    })
 })
 
 module.exports = router

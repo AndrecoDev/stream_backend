@@ -2,7 +2,6 @@ import { useState } from 'react'
 
 const useForm = (callback) => {
     const [inputs, setInputs] = useState({})
-
     const handleSubmit = (e) => {
         if (e) {
             e.preventDefault()
@@ -13,10 +12,8 @@ const useForm = (callback) => {
         e.persist()
         setInputs(inputs => ({ ...inputs, [e.target.name]: e.target.value}))
     }
-
     return { handleSubmit, handleInputChange, inputs }
 }
-
 export default useForm;
 
 // export default (initialState, onSubmit) => {

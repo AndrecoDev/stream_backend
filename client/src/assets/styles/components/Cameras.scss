@@ -1,3 +1,4 @@
+@import '../Vars.scss';
 .containerCamera{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -27,6 +28,11 @@ h4{
     position: absolute;
     margin-top: 72px;
     margin-left: 6px;
+}
+.camera_add{
+    width: 12rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
 }
 @media (max-width: 767px){
     .containerCamera{
